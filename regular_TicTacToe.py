@@ -3,23 +3,17 @@
     for regular tic-tac-toe
 '''
 
-def create_board():
-    board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 0]
-    return board
-
 def turns(b):
     valid = False
     while valid == False:
         if b[9] % 2 == 0:
             xplay = int(input("Enter placement of next X:\n"))
             if xplay < 9 and b[xplay] == ' ':
-                valid = True
-                b[xplay] = 'X'
+                valid, b[xplay] = True, 'X'
         else:
             oplay = int(input("Your turn O:\n"))
             if oplay < 9 and b[oplay] == ' ':
-                valid = True
-                b[oplay] = 'O'
+                valid, b[oplay] = True, 'O'
     b[9] += 1
     current_turn(b)
     return b
@@ -50,14 +44,6 @@ def check_wins(b):
         return True
     return False
 
-def print_ex():
-    print(' 0 | 1 | 2 ')
-    print('___|___|___')
-    print(' 3 | 4 | 5 ')
-    print('___|___|___')
-    print(' 6 | 7 | 8 ')
-    print('   |   |   ')
-
 def current_turn(b):
     print(' ' + b[0] + ' | ' + b[1] + ' | ' +  b[2] + ' ')
     print('___|___|___')
@@ -67,8 +53,8 @@ def current_turn(b):
     print('   |   |   ')
 
 def main():
-    board = create_board()
-    print_ex()
+    board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 0]
+    current_turn(['0', '1', '2', '3', '4', '5', '6', '7', '8']
     while check_wins(board) != True:
         board = turns(board)
 
