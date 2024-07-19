@@ -54,7 +54,7 @@ def current_turn(b):
 
 def main():
     board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 0]
-    current_turn(['0', '1', '2', '3', '4', '5', '6', '7', '8']
+    current_turn(['0', '1', '2', '3', '4', '5', '6', '7', '8'])
     while check_wins(board) != True:
         board = turns(board)
 
